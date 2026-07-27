@@ -1,12 +1,18 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.EntityFrameworkCore;
+using Wpm.Management.Api.Infrastructure;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddDbContext<ManagementDbContext>(opt =>
+{
+    opt.UseSqlite("Data Source=Wpm.db");
+});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.EnsureDbIsCreated();
 
 app.UseHttpsRedirection();
 
