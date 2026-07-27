@@ -1,6 +1,23 @@
 @Wpm.Management.Api_HostAddress = http://localhost:5087
 
-GET {{Wpm.Management.Api_HostAddress}}/weatherforecast/
+POST {{Wpm.Management.Api_HostAddress}}/management/
 Accept: application/json
-
+Content-Type: application/json
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "name": "petTest",
+  "age": 13,
+  "color": "Tricolor",
+  "sexOfPet": 0,
+  "breedId": "1c10f44e-83b1-4094-b6b1-4298991d9d71"
+}
 ###
+
+PUT {{Wpm.Management.Api_HostAddress}}/management/
+Accept: application/json
+Content-Type: application/json
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "weight": 18.5
+}
+
