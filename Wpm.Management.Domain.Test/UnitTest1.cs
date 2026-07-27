@@ -1,4 +1,7 @@
-﻿using Wpm.Management.Domain.ValueObjects;
+﻿using Wpm.Management.Domain.Entities;
+using Wpm.Management.Domain.Services;
+using Wpm.Management.Domain.ValueObjects;
+using Wpm.SharedKernel;
 
 namespace Wpm.Management.Domain.Test
 {

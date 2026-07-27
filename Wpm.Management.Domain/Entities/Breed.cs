@@ -1,6 +1,7 @@
 ﻿using Wpm.Management.Domain.ValueObjects;
+using Wpm.SharedKernel;
 
-namespace Wpm.Management.Domain;
+namespace Wpm.Management.Domain.Entities;
 public class Breed : Entity
 {
     public string Name { get; init; }
