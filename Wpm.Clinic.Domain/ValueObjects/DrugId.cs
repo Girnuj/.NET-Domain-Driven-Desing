@@ -6,4 +6,6 @@ public record DrugId
     {
         Value = value;
     }
+
+    public static implicit operator DrugId(Guid value) => new(value);
 }

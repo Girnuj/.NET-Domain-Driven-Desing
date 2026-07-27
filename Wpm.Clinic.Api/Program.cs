@@ -1,12 +1,21 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.EntityFrameworkCore;
+using Wpm.Clinic.Api.Application;
+using Wpm.Clinic.Api.Infrastructure;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddDbContext<ClinicDbContext>(options =>
+{
+    options.UseSqlite("Data Source=Wpm.db");
+});
+
+builder.Services.AddScoped<ClinicApplicationService>();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.EnsureDbIsCreated();
 
 app.UseHttpsRedirection();
 

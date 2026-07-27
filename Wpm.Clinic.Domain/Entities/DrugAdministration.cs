@@ -14,4 +14,6 @@ public class DrugAdministration : Entity
         DrugId = drugId;
         Dose = dose;
     }
+
+    public DrugAdministration() { }
 }

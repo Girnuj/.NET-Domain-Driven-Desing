@@ -1,6 +1,25 @@
 @Wpm.Clinic.Api_HostAddress = http://localhost:5148
 
-GET {{Wpm.Clinic.Api_HostAddress}}/weatherforecast/
+POST {{Wpm.Clinic.Api_HostAddress}}/Clinic/
 Accept: application/json
+Content-Type: application/json
+{
+  "patientId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+###
 
+PUT {{Wpm.Clinic.Api_HostAddress}}/Clinic/registerVitalSigns
+Accept: application/json
+Content-Type: application/json
+{
+  "consultationId": "78db5234-5c15-4062-8223-2c9fbb2d277a",
+  "vitalSignReadings": [
+    {
+      "readingDataTime": "2026-04-04T07:59:55.722Z",
+      "temperature": 27,
+      "heartRate": 0,
+      "respiratoryRate":0
+    }
+  ]
+}
 ###
