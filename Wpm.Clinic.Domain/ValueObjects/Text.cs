@@ -12,7 +12,7 @@ public record Text
     private void Validate(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new ArgumentNullException("value", "Texto no válido.");
+            throw new ArgumentNullException(nameof(value), "Texto no válido.");
 
         if (value.Length > 500)
             throw new ArgumentException("Texto demasiado largo.");

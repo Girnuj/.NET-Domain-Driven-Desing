@@ -1,6 +1,3 @@
 ﻿namespace Wpm.SharedKernel;
 
-public class AggregateRoot : Entity
-{
-
-}
+public class AggregateRoot : Entity { }

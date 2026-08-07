@@ -11,8 +11,10 @@ builder.Services.AddDbContext<ManagementDbContext>(opt =>
 {
     opt.UseSqlite("Data Source=Wpm.db");
 });
+
 builder.Services.AddScoped<IBreedService, BreedService>();
 builder.Services.AddScoped<ManagementApplicationService>();
+
 var app = builder.Build();
 
 app.EnsureDbIsCreated();

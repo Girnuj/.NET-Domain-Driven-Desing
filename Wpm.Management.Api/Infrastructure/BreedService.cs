@@ -15,9 +15,8 @@ public class BreedService : IBreedService
     public Breed? GetBreed(Guid id)
     {
         if (id == Guid.Empty)
-        {
             throw new ArgumentException("La raza no es válida.");
-        }
+
         var result = breeds.Find(breeds => breeds.Id == id);
         return result ?? throw new ArgumentException("La raza no se encontró.");
     }

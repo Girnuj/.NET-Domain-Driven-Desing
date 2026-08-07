@@ -6,9 +6,9 @@ namespace Wpm.Management.Domain.Entities;
 
 public class Pet : Entity
 {
-    public string Name { get; init; }
+    public string Name { get; init; } = String.Empty;
     public int Age { get; init; }
-    public string Color { get; init; }
+    public string Color { get; init; } = String.Empty;
     public Weight? Weight { get; private set; }
     public WeightClass WeightClass { get; private set; }
     public SexOfPet SexOfPet { get; init; }
@@ -40,8 +40,8 @@ public class Pet : Entity
 
         var (from, to) = SexOfPet switch
         {
-            SexOfPet.Male => (desiredBreed.MaleIdealWeight.From, desiredBreed.MaleIdealWeight.To),
-            SexOfPet.Female => (desiredBreed.FemaleIdealWeight.From, desiredBreed.FemaleIdealWeight.To),
+            SexOfPet.Male => (desiredBreed?.MaleIdealWeight.From, desiredBreed?.MaleIdealWeight.To),
+            SexOfPet.Female => (desiredBreed?.FemaleIdealWeight.From, desiredBreed?.FemaleIdealWeight.To),
             _ => throw new NotImplementedException()
         };
 

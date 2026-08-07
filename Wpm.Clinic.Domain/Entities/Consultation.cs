@@ -5,8 +5,8 @@ namespace Wpm.Clinic.Domain.Entities;
 
 public class Consultation : AggregateRoot
 {
-    private readonly List<DrugAdministration> administeredDrugs = new();
-    private readonly List<VitalSigns> vitalSignReadings = new();
+    private readonly List<DrugAdministration> administeredDrugs = [];
+    private readonly List<VitalSigns> vitalSignReadings = [];
     public DateTime ConsultationStart { get; init; }
     public DateTime? ConsultationEnd { get; private set; }
     public PatientId PatientId { get; init; }
@@ -53,10 +53,9 @@ public class Consultation : AggregateRoot
     {
         ValidateConsultationStatus();
 
-        if (Diagnosis == null || Treatment == null || CurrentWeight == null)
-        {
+        var nullProps = Diagnosis == null || Treatment == null || CurrentWeight == null;
+        if (nullProps)
             throw new InvalidOperationException("La consulta no puede ser finalizada.");
-        }
 
         Status = ConsultationStatus.Finalized;
         ConsultationEnd = DateTime.UtcNow;
@@ -71,9 +70,7 @@ public class Consultation : AggregateRoot
     private void ValidateConsultationStatus()
     {
         if (Status == ConsultationStatus.Finalized)
-        {
             throw new InvalidOperationException("La consulta ya está finalizada.");
-        }
     }
 }
 

@@ -4,7 +4,7 @@ using Wpm.SharedKernel;
 namespace Wpm.Management.Domain.Entities;
 public class Breed : Entity
 {
-    public string Name { get; init; }
+    public string Name { get; init; } = String.Empty;
     public WeightRange MaleIdealWeight { get; init; }
     public WeightRange FemaleIdealWeight { get; init; }
 
